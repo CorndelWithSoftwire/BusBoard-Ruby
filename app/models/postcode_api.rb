@@ -7,6 +7,8 @@ class PostcodeApi < BaseApi
     Postcode.new(postcode_data)
   end
 
+  private
+
   def get_json_response_from_api(request_url)
     super
   end

@@ -3,8 +3,8 @@ class LiveBusStop < ApplicationRecord
     @data = data
   end
 
-  def no_buses?
-    @data.empty?
+  def has_buses?
+    !@data.empty?
   end
 
   def name

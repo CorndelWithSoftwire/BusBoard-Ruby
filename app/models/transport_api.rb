@@ -13,10 +13,9 @@ class TransportApi < BaseApi
 
     data = get_json_response_from_api(request_url)
 
-    nearest_two_stopcodes = []
-    data['stopPoints'].first(num_stopcodes).each { |stop| nearest_two_stopcodes.push(stop['naptanId']) }
-
-    nearest_two_stopcodes
+    nearest_stopcodes = []
+    data['stopPoints'].first(num_stopcodes).each { |stop| nearest_stopcodes.push(stop['naptanId']) }
+    nearest_stopcodes
   end
 
   def get_live_bus_stop(stopcode)
@@ -24,6 +23,8 @@ class TransportApi < BaseApi
     data = get_json_response_from_api(request_url)
     LiveBusStop.new(data)
   end
+
+  private
 
   def get_json_response_from_api(request_url)
     super
